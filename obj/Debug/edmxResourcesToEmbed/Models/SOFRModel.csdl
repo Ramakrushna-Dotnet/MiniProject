@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LIBORModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SOFR">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+    <Property Name="SOFR_Index" Type="Decimal" Precision="18" Scale="7" />
+    <Property Name="Average_30Days" Type="Decimal" Precision="18" Scale="7" />
+    <Property Name="Average_90Days" Type="Decimal" Precision="18" Scale="7" />
+    <Property Name="Average_180Days" Type="Decimal" Precision="18" Scale="7" />
+  </EntityType>
+  <EntityContainer Name="LIBOREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SOFRs" EntityType="Self.SOFR" />
+    <FunctionImport Name="SP_INS_SOFR" ReturnType="Collection(LIBORModel.SP_INS_SOFR_Result)">
+      <Parameter Name="Id" Mode="In" Type="Int32" />
+      <Parameter Name="Date" Mode="In" Type="DateTime" />
+      <Parameter Name="SOFR_Index" Mode="In" Type="Decimal" />
+      <Parameter Name="Average_30Days" Mode="In" Type="Decimal" />
+      <Parameter Name="Average_90Days" Mode="In" Type="Decimal" />
+      <Parameter Name="Average_180Days" Mode="In" Type="Decimal" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_INS_SOFR_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="DateTime" Name="Date" Nullable="true" />
+    <Property Type="Decimal" Name="SOFR_Index" Nullable="true" Precision="18" Scale="7" />
+    <Property Type="Decimal" Name="Average_30Days" Nullable="true" Precision="18" Scale="7" />
+    <Property Type="Decimal" Name="Average_90Days" Nullable="true" Precision="18" Scale="7" />
+    <Property Type="Decimal" Name="Average_180Days" Nullable="true" Precision="18" Scale="7" />
+  </ComplexType>
+</Schema>

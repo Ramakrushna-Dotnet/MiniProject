@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LIBORModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SOFR">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" />
+    <Property Name="SOFR_Index" Type="decimal" Precision="18" Scale="7" />
+    <Property Name="Average_30Days" Type="decimal" Precision="18" Scale="7" />
+    <Property Name="Average_90Days" Type="decimal" Precision="18" Scale="7" />
+    <Property Name="Average_180Days" Type="decimal" Precision="18" Scale="7" />
+  </EntityType>
+  <Function Name="SP_INS_SOFR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Date" Type="date" Mode="In" />
+    <Parameter Name="SOFR_Index" Type="decimal" Mode="In" />
+    <Parameter Name="Average_30Days" Type="decimal" Mode="In" />
+    <Parameter Name="Average_90Days" Type="decimal" Mode="In" />
+    <Parameter Name="Average_180Days" Type="decimal" Mode="In" />
+  </Function>
+  <EntityContainer Name="LIBORModelStoreContainer">
+    <EntitySet Name="SOFR" EntityType="Self.SOFR" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

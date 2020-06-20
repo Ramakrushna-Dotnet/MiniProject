@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LIBORModelStoreContainer" CdmEntityContainer="LIBOREntities">
+    <EntitySetMapping Name="SOFRs">
+      <EntityTypeMapping TypeName="LIBORModel.SOFR">
+        <MappingFragment StoreEntitySet="SOFR">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SOFR_Index" ColumnName="SOFR_Index" />
+          <ScalarProperty Name="Average_30Days" ColumnName="Average_30Days" />
+          <ScalarProperty Name="Average_90Days" ColumnName="Average_90Days" />
+          <ScalarProperty Name="Average_180Days" ColumnName="Average_180Days" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_INS_SOFR" FunctionName="LIBORModel.Store.SP_INS_SOFR">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LIBORModel.SP_INS_SOFR_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="SOFR_Index" ColumnName="SOFR_Index" />
+          <ScalarProperty Name="Average_30Days" ColumnName="Average_30Days" />
+          <ScalarProperty Name="Average_90Days" ColumnName="Average_90Days" />
+          <ScalarProperty Name="Average_180Days" ColumnName="Average_180Days" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
