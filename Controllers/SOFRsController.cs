@@ -106,7 +106,7 @@ namespace LIBORwebAPI.Controllers
 
             return Ok(sOFR);
         }
-
+        // override method added
         protected override void Dispose(bool disposing)
         {
             if (disposing)
